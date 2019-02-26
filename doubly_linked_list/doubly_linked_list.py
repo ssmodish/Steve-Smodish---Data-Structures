@@ -195,16 +195,14 @@ class DoublyLinkedList:
 
     def delete(self, node):
         # make sure there are more than one items in our list
-        if self.head != self.tail:
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+            node.delete()
+        else:
             # make a reference to the selected node
             current_node = node
             # check to see if the selected node is the head or tail
-            # if it isn't
-            if current_node != self.head and current_node != self.tail:
-                # set the next nodes prev to the current nodes prev
-                current_node.next.prev = current_node.prev
-                # set prev nodes next to the current nodes next
-                current_node.prev.next = current_node.next
             # if it is the head
             if current_node == self.head:
                 # set self.head to the next node
@@ -212,16 +210,22 @@ class DoublyLinkedList:
                 # set current_node.next's prev to None
                 self.head.prev = None
             # if it is the tail
-            if current_node == self.tail:
+            elif current_node == self.tail:
                 # set self.tail to the prev node
                 self.tail = current_node.prev
                 # set self.tail's next to None
                 self.tail.next = None
-            # set the current nodes prev and next to None or itself?
+            # if it isn't the head or tail
+            else:
+                # set the next nodes prev to the current nodes prev
+                current_node.next.prev = current_node.prev
+                # set prev nodes next to the current nodes next
+                current_node.prev.next = current_node.next
+            # delete the node
+            current_node.delete()
 
 
-
-    def get_max(self):
+def get_max(self):
         # make sure there are items in the list
         if self.head:
             # set max_value to the value of self.head
@@ -239,3 +243,4 @@ class DoublyLinkedList:
 
             # return max_value
             return max_val
+        return 0
