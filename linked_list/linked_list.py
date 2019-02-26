@@ -6,6 +6,9 @@ class Node:
     def get_value(self):
         return self.value
 
+    def get_next(self):
+        return self.next_node
+
     def set_next(self, new_next):
         self.next_node = new_next
 
@@ -37,7 +40,7 @@ class LinkedList:
             return None
         # if it isn't , see if we only have one element (is self.head.next == None?
         #   and is self.head == self.tail
-        if not self.head.get_next() == None:
+        if self.head.get_next() is None:
             # get a new reference to the current head node
             head = self.head
             # set self.head to None
@@ -73,3 +76,5 @@ class LinkedList:
         # we checked the whole list and did not find value
         # return false
         return False
+
+
