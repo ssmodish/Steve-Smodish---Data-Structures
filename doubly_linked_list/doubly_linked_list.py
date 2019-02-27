@@ -198,7 +198,7 @@ class DoublyLinkedList:
         if self.head == self.tail:
             self.head = None
             self.tail = None
-            node.delete()
+            # node.delete()
         else:
             # make a reference to the selected node
             current_node = node
@@ -222,7 +222,7 @@ class DoublyLinkedList:
                 # set prev nodes next to the current nodes next
                 current_node.prev.next = current_node.next
             # delete the node
-            current_node.delete()
+            # current_node.delete()
 
 
     def get_max(self):

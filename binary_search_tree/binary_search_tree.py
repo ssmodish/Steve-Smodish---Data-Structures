@@ -1,14 +1,50 @@
 class BinarySearchTree:
-  def __init__(self, value):
-    self.value = value
-    self.left = None
-    self.right = None
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
-  def insert(self, value):
-    pass
+# the BST is the construct (like a node) and the implementation (like a linked list)
+    def insert(self, value):
+        new_leaf = BinarySearchTree(value)
+        if value < self.value:
+            if not self.left:
+                self.left = new_leaf
+            else:
+                self.left.insert(value)
+        elif value >= self.value:
+            if not self.right:
+                self.right = new_leaf
+            else:
+                self.right.insert(value)
 
-  def contains(self, target):
-    pass
+    def contains(self, target):
+        if target:
+            # print(f"bst {self.value} contains {target}")
+            if target == self.value:
+                # print("returning true")
+                return True
+            elif target < self.value:
+                if not self.left:
+                    return False
+                else:
+                    return self.left.contains(target)
+            else:
+                if not self.right:
+                    return False
+                else:
+                    return self.right.contains(target)
 
-  def get_max(self):
-    pass
+    def get_max(self):
+        if self.right:
+            return self.right.get_max()
+        else:
+            return self.value
+
+
+
+bst = BinarySearchTree(5)
+bst.insert(2)
+bst.insert(3)
+bst.insert(7)
+print(bst.contains(7))
