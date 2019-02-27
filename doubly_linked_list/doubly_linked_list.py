@@ -225,22 +225,22 @@ class DoublyLinkedList:
             current_node.delete()
 
 
-def get_max(self):
-        # make sure there are items in the list
-        if self.head:
-            # set max_value to the value of self.head
-            max_val = self.head.value
-            # set a node at the top of the list
-            current_node = self.head
-            # while we are not at the end of the list
-            while current_node != self.tail:
-                # move to the next node
-                current_node = current_node.next
-                # compare the value of the current node to max_value
-                if current_node.value > max_val:
-                    # if the node's value is greater, set max_value to that value
-                    max_val = current_node.value
+    def get_max(self):
+            # make sure there are items in the list
+            if self.head:
+                # set max_value to the value of self.head
+                max_val = self.head.value
+                # set a node at the top of the list
+                current_node = self.head
+                # while we are not at the end of the list
+                while current_node != self.tail:
+                    # move to the next node
+                    current_node = current_node.next
+                    # compare the value of the current node to max_value
+                    if current_node.value > max_val:
+                        # if the node's value is greater, set max_value to that value
+                        max_val = current_node.value
 
-            # return max_value
-            return max_val
-        return 0
+                # return max_value
+                return max_val
+            return 0
